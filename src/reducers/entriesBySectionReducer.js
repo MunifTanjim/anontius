@@ -16,9 +16,11 @@ const entriesReducer = (state, action) => {
   switch (action.type) {
     case SYNC_ENTRIES_SUCCESS:
       let newEntries = action.snapshot.val()
-      let newKeys = Object.keys(newEntries)
-        .filter(key => !~state.keys.indexOf(key))
-        .reverse()
+      let newKeys = newEntries
+        ? Object.keys(newEntries)
+            .filter(key => !~state.keys.indexOf(key))
+            .reverse()
+        : []
 
       return {
         keys: [...newKeys, ...state.keys],
