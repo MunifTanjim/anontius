@@ -10,8 +10,8 @@ import HomeButton from './Navbar/HomeButton'
 import { appTitle, social, homeURL } from '../config'
 
 const StyledNavbar = ({ authed }) => (
-  <Navbar isMarginless>
-    <NavbarBrand style={{ width: '100%' }}>
+  <Navbar>
+    <NavbarBrand style={{ width: '100%' }} isMarginless>
       <AppTitle title={appTitle} />
       {Object.keys(social).map(platform => (
         <NavbarItem

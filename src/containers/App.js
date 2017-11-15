@@ -38,7 +38,7 @@ class App extends Component {
     let authed = this.props.user.authenticated
 
     return (
-      <Container style={{ width: '100%', maxWidth: '100%' }} isMarginless>
+      <Container style={{ width: '100%', maxWidth: '100%' }}>
         <Navbar authed={authed} />
         <Header authed={authed} />
         <Section tag="main">
