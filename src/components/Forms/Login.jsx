@@ -1,6 +1,8 @@
 import React from 'react'
 import { Container, Field, Label, Control, Input, Button } from 'bloomer'
 
+import { accentColor } from '../../utils/config'
+
 const LoginForm = ({ handleChange, handleLogin, valid }) => (
   <Container tag="form" style={{ maxWidth: '35em' }}>
     <Field>
@@ -10,7 +12,7 @@ const LoginForm = ({ handleChange, handleLogin, valid }) => (
           type="email"
           name="email"
           isSize="large"
-          isColor={valid.email ? '' : 'danger'}
+          isColor={valid.email ? accentColor : 'danger'}
           onChange={handleChange}
           required
         />
@@ -23,7 +25,7 @@ const LoginForm = ({ handleChange, handleLogin, valid }) => (
           type="password"
           name="pass"
           isSize="large"
-          isColor={valid.pass ? '' : 'danger'}
+          isColor={valid.pass ? accentColor : 'danger'}
           onChange={handleChange}
           required
         />
@@ -33,7 +35,7 @@ const LoginForm = ({ handleChange, handleLogin, valid }) => (
       <Control>
         <Button
           type="submit"
-          isColor="primary"
+          isColor={accentColor}
           isSize="large"
           onClick={handleLogin}
         >
@@ -41,7 +43,7 @@ const LoginForm = ({ handleChange, handleLogin, valid }) => (
         </Button>
       </Control>
       <Control>
-        <Button type="reset" isSize="large">
+        <Button type="reset" isColor={accentColor} isSize="large">
           Clear
         </Button>
       </Control>

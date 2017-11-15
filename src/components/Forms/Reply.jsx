@@ -33,10 +33,15 @@ const ReplyForm = ({
       />
 
       <CardFooter>
-        <CardFooterItem onClick={e => handleDataSubmit(e, message)}>
+        <CardFooterItem
+          tag="a"
+          hasTextColor="black"
+          onClick={e => handleDataSubmit(e, message)}
+        >
           {config.buttonText.submit}
         </CardFooterItem>
         <CardFooterItem
+          hasTextColor="black"
           render={props => <Link to="/show/messages" {...props} />}
         >
           Cancel

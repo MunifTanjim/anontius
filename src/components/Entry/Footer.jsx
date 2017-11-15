@@ -6,6 +6,7 @@ const EntryFooter = ({ entry, entryKey }) => (
   <CardFooter>
     {!entry.reply && !entry.replied ? (
       <CardFooterItem
+        hasTextColor="black"
         render={props => <Link to={`/submit/reply/${entryKey}`} {...props} />}
       >
         Reply

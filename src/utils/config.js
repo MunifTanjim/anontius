@@ -11,6 +11,9 @@ export const firebaseConfig = {
 
 export const appTitle = env.REACT_APP_TITLE
 
+// white light dark black primary info success warning danger
+export const accentColor = 'primary'
+
 export const headerConfig = {
   show: {
     messages: {

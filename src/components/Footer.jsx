@@ -1,5 +1,4 @@
 import React from 'react'
-
 import { Columns, Column, Container, Content, Footer } from 'bloomer'
 
 const StyledFooter = () => (
@@ -9,26 +8,30 @@ const StyledFooter = () => (
         <Column>
           <p>
             developed by{' '}
-            <a
-              href="https://github.com/MunifTanjim"
+            <Content
+              tag="a"
+              hasTextColor="black"
               target="_blank"
               rel="noopener noreferrer"
+              href="https://github.com/MunifTanjim"
             >
               Munif Tanjim
-            </a>
+            </Content>
           </p>
         </Column>
       </Columns>
       <Content isSize="small">
         <p>
           The source code is licensed under{' '}
-          <a
+          <Content
+            tag="a"
+            hasTextColor="black"
             target="_blank"
             rel="noopener noreferrer"
             href="https://github.com/MunifTanjim/anontius/blob/master/LICENSE"
           >
             MIT
-          </a>.
+          </Content>.
         </p>
       </Content>
     </Container>

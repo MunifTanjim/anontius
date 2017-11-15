@@ -5,6 +5,8 @@ import TextArea from '../../components/TextArea'
 
 import { Container } from 'bloomer'
 
+import { accentColor } from '../../utils/config'
+
 const Form = ({
   data,
   config,
@@ -24,7 +26,7 @@ const Form = ({
     <Container isFluid hasTextAlign="centered">
       <Button
         isSize="large"
-        isColor="primary"
+        isColor={accentColor}
         isStatic={isProcessing}
         disabled={isProcessing}
         onClick={handleDataSubmit}
@@ -34,7 +36,7 @@ const Form = ({
       </Button>
       <Button
         isSize="large"
-        isColor="primary"
+        isColor={accentColor}
         isStatic={isProcessing}
         disabled={isProcessing}
         onClick={handleDataReset}

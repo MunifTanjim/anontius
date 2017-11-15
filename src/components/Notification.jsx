@@ -1,25 +1,23 @@
 import React from 'react'
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
 import {
   Modal,
   ModalBackground,
   ModalContent,
   ModalClose,
-  Notification,
-  Delete
+  Notification
 } from 'bloomer'
-import { bindActionCreators } from 'redux'
-import { connect } from 'react-redux'
 
 import { notify } from '../actions/notificationActions'
 
-const NotificationHolder = ({ notification, notify, color = 'primary' }) => (
+import { accentColor } from '../utils/config'
+
+const NotificationHolder = ({ notification, notify }) => (
   <Modal isActive={notification.show}>
     <ModalBackground onClick={() => notify(false)} />
     <ModalContent>
-      <Notification isColor={color}>
-        <Delete onClick={() => notify(false)} />
-        {notification.info}
-      </Notification>
+      <Notification isColor={accentColor}>{notification.info}</Notification>
     </ModalContent>
     <ModalClose onClick={() => notify(false)} />
   </Modal>
