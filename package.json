@@ -1,7 +1,9 @@
 {
   "name": "anontius",
   "version": "0.1.0",
-  "private": true,
+  "repository": "https://github.com/MunifTanjim/anontius",
+  "author": "MunifTanjim",
+  "license": "MIT",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -10,14 +12,14 @@
   },
   "dependencies": {
     "bloomer": "^0.6.2",
-    "bulma": "^0.5.1",
-    "feather-icons": "^3.2.2",
-    "firebase": "^4.2.0",
-    "react": "^15.6.1",
-    "react-dom": "^15.6.1",
+    "bulma": "^0.6.1",
+    "feather-icons": "^3.3.0",
+    "firebase": "^4.6.2",
+    "react": "^16.1.1",
+    "react-dom": "^16.1.1",
     "react-redux": "^5.0.6",
-    "react-router-dom": "^4.1.2",
-    "react-scripts": "1.0.10",
+    "react-router-dom": "^4.2.2",
+    "react-scripts": "^1.0.17",
     "redux": "^3.7.2",
     "redux-thunk": "^2.2.0"
   }
