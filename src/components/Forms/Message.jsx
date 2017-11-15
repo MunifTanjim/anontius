@@ -5,7 +5,7 @@ import TextArea from '../../components/TextArea'
 
 import { Container } from 'bloomer'
 
-import { accentColor } from '../../utils/config'
+import { accentColor } from '../../config'
 
 const Form = ({
   data,

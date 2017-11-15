@@ -1,7 +1,7 @@
 import React from 'react'
 import { Container, Field, Label, Control, Input, Button } from 'bloomer'
 
-import { accentColor } from '../../utils/config'
+import { accentColor } from '../../config'
 
 const LoginForm = ({ handleChange, handleLogin, valid }) => (
   <Container tag="form" style={{ maxWidth: '35em' }}>

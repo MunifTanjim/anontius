@@ -4,7 +4,7 @@ import { Hero } from 'bloomer'
 import HeaderHeroBody from './Header/HeroBody'
 import HeaderHeroFooter from './Header/HeroFooter'
 
-import { accentColor } from '../utils/config'
+import { accentColor } from '../config'
 
 const Header = ({ authed }) => (
   <Hero isColor={accentColor} tag="header">

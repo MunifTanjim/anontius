@@ -6,7 +6,7 @@ import { SimpleRoute } from '../../utils/router'
 
 import TitleBlock from './TitleBlock'
 
-import { headerConfig } from '../../utils/config'
+import { headerConfig } from '../../config'
 
 const HeaderHeroBody = () => (
   <HeroBody>

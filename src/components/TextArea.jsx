@@ -1,7 +1,7 @@
 import React from 'react'
 import { Control, TextArea } from 'bloomer'
 
-import { accentColor } from '../utils/config'
+import { accentColor } from '../config'
 
 const StyledTextArea = ({ value, handleChange, isProcessing, ...rest }) => (
   <Control isLoading={isProcessing}>

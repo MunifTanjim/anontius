@@ -7,7 +7,7 @@ import AppTitle from './Navbar/AppTitle'
 import DashButton from './Navbar/DashButton'
 import HomeButton from './Navbar/HomeButton'
 
-import { appTitle, social, homeURL } from '../utils/config'
+import { appTitle, social, homeURL } from '../config'
 
 const StyledNavbar = ({ authed }) => (
   <Navbar isMarginless>

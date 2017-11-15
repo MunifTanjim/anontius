@@ -8,7 +8,7 @@ import { postMessage, postReply } from '../utils/firebaseAPI'
 
 import Form from '../components/Form'
 
-import { notificationConfig } from '../utils/config'
+import { notificationConfig } from '../config'
 
 function handlePostError(err, notification) {
   this.setProcessing(false)

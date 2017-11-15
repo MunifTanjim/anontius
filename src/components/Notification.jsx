@@ -11,7 +11,7 @@ import {
 
 import { notify } from '../actions/notificationActions'
 
-import { accentColor } from '../utils/config'
+import { accentColor } from '../config'
 
 const NotificationHolder = ({ notification, notify }) => (
   <Modal isActive={notification.show}>
