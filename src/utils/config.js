@@ -47,10 +47,10 @@ export const notificationConfig = {
     success: 'Sent!'
   },
   reply: {
-    empty: 'Empty Answer!',
-    error: "Can't Answer!",
-    processing: 'Answering...',
-    success: 'Answered!'
+    empty: 'Empty Reply!',
+    error: "Can't Reply!",
+    processing: 'Replying...',
+    success: 'Replied!'
   }
 }
 export const formConfig = {

@@ -9,7 +9,7 @@ import { Card, CardFooter, CardFooterItem } from 'bloomer'
 import EntryHeader from '../Entry/Header'
 import EntryContent from '../Entry/Content'
 
-const AnswerForm = ({
+const ReplyForm = ({
   messages,
   messageKey,
   data,
@@ -50,4 +50,4 @@ const mapStatesToProps = ({ entriesBySection }) => ({
   messages: entriesBySection.messages.entries
 })
 
-export default withRouter(connect(mapStatesToProps)(AnswerForm))
+export default withRouter(connect(mapStatesToProps)(ReplyForm))

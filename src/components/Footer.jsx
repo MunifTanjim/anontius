@@ -24,6 +24,7 @@ const StyledFooter = () => (
           The source code is licensed under{' '}
           <a
             target="_blank"
+            rel="noopener noreferrer"
             href="https://github.com/MunifTanjim/anontius/blob/master/LICENSE"
           >
             MIT

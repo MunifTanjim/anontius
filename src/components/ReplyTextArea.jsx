@@ -5,7 +5,7 @@ import TextArea from '../components/TextArea'
 
 const ReplyTextArea = ({ config, handleDataChange, isProcessing, data }) => (
   <Field>
-    <Label>Answer</Label>
+    <Label>Reply</Label>
     <Control>
       <TextArea
         rows={4}
