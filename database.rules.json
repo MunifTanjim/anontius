@@ -1,0 +1,18 @@
+{
+  "rules": {
+    "messages": {
+      ".read": "auth != null",
+      "$message": {
+        ".write": "!data.exists() || newData.child('replied').exists()"
+      }
+    },
+    "replies": {
+      ".read": true,
+      ".write": false,
+      "$reply": {
+        ".write":
+          "auth != null && !data.exists() && root.child('messages/'+$reply).exists()"
+      }
+    }
+  }
+}
