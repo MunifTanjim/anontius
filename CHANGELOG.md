@@ -18,6 +18,7 @@
 
 - `Navbar` style issue
 - `entriesReducer()` issue with null `newEntries` (occurs when database is empty)
+- Time padding issue
 - Other minor issues
 
 ### Removed

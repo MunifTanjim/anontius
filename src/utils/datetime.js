@@ -1,3 +1,8 @@
+const leftPad = (str, targetLen, padChar = '0') => {
+  let len = `${str}`.length
+  return targetLen > len ? `${padChar.repeat(targetLen - len)}${str}` : `${str}`
+}
+
 const months = [
   'January',
   'February',
@@ -14,9 +19,12 @@ const months = [
 ]
 
 export const formatDateTime = unix => {
-  let date = new Date(unix)
-  return `${date.getFullYear()}, ${months[date.getMonth()].substr(
-    0,
-    3
-  )} ${date.getDate()}, ${date.getHours()}:${date.getMinutes()}`
+  let dateObj = new Date(unix)
+  let year = dateObj.getFullYear(),
+    month = months[dateObj.getMonth()].substr(0, 3),
+    date = dateObj.getDate(),
+    hours = leftPad(dateObj.getHours(), 2),
+    minutes = leftPad(dateObj.getMinutes(), 2)
+
+  return `${year}, ${month} ${date}, ${hours}:${minutes}`
 }
