@@ -20,6 +20,10 @@
 - `entriesReducer()` issue with null `newEntries` (occurs when database is empty)
 - Other minor issues
 
+### Removed
+
+- Configuration defaults related to `MunifTanjim`
+
 ## 0.1.0 - 2017-11-15
 
 - Initial release

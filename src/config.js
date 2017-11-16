@@ -74,9 +74,9 @@ export const formConfig = {
 }
 
 export const social = {
-  facebook: 'https://facebook.com/MunifTanjim',
-  github: 'https://github.com/MunifTanjim',
-  twitter: 'https://twitter.com/MunifTanjim'
+  facebook: 'https://facebook.com/',
+  github: 'https://github.com/',
+  twitter: 'https://twitter.com/'
 }
 
-export const homeURL = 'https://muniftanjim.com'
+export const homeURL = 'https://example.org/'
