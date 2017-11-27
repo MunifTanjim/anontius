@@ -1,16 +1,10 @@
+import { initialSectionStruct } from './rootReducer'
+
 import {
   SYNC_ENTRIES_REQUEST,
   SYNC_ENTRIES_SUCCESS,
   SYNC_ENTRIES_FAILURE
 } from '../actions/actionTypes'
-
-const initialSectionStruct = {
-  isUpdating: false,
-  entries: {
-    keys: [],
-    list: {}
-  }
-}
 
 const entriesReducer = (state, action) => {
   switch (action.type) {

@@ -5,7 +5,7 @@ import ReactDOM from 'react-dom'
 import registerServiceWorker from './registerServiceWorker'
 
 import Root from './containers/Root'
-import store from './store'
+import { store } from './store'
 
 import './utils/firebaseAPI'
 

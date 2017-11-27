@@ -1,3 +1,4 @@
+import { store } from '../store'
 import { syncSnapshotSubscribe } from '../utils/firebaseAPI'
 
 import {
@@ -26,8 +27,11 @@ const syncEntriesFailure = (section, err) => {
 }
 
 export const syncSnapshot = section => dispatch => {
+  let startKey = store.getState().entriesBySection[section].entries.keys[0]
+
   return syncSnapshotSubscribe(
     section,
+    startKey,
     section => dispatch(syncEntriesRequest(section)),
     (section, snapshot) => dispatch(syncEntriesSuccess(section, snapshot)),
     (section, err) => dispatch(syncEntriesFailure(section, err))

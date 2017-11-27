@@ -49,6 +49,7 @@ export const authSubscribe = callback => auth.onAuthStateChanged(callback)
 
 export const syncSnapshotSubscribe = (
   section,
+  startKey = '',
   requestCallback,
   successCallback,
   failureCallback
@@ -56,6 +57,8 @@ export const syncSnapshotSubscribe = (
   requestCallback(section)
   return ref
     .child(section)
+    .orderByKey()
+    .startAt(startKey)
     .on(
       'value',
       snapshot => successCallback(section, snapshot),
