@@ -1,25 +1,25 @@
 import React from 'react'
 import { Container, HeroFooter, Tabs, TabList } from 'bloomer'
-
+import { translate } from 'react-i18next'
 import TabLink from './TabLink'
 
-const HeaderHeroFooter = ({ authed }) => (
+const HeaderHeroFooter = ({ authed, t }) => (
   <HeroFooter>
     <Container>
       <Tabs isBoxed isFullWidth>
         {authed ? (
           <TabList>
             <TabLink exact to="/view/messages">
-              Messages
+              {t('header.tabs.messages')}
             </TabLink>
             <TabLink exact to="/view/replies">
-              Replies
+              {t('header.tabs.replies')}
             </TabLink>
           </TabList>
         ) : (
           <TabList>
-            <TabLink to="/submit/message">Send</TabLink>
-            <TabLink to="/view/replies">Replies</TabLink>
+            <TabLink to="/submit/message">{t('header.tabs.send')}</TabLink>
+            <TabLink to="/view/replies">{t('header.tabs.replies')}</TabLink>
           </TabList>
         )}
       </Tabs>
@@ -27,4 +27,4 @@ const HeaderHeroFooter = ({ authed }) => (
   </HeroFooter>
 )
 
-export default HeaderHeroFooter
+export default translate()(HeaderHeroFooter)
