@@ -1,12 +1,14 @@
 import React from 'react'
 import { Container, Button, Box } from 'bloomer'
+import { translate } from 'react-i18next'
 
 import Entry from '../components/Entry'
 
-const EntryList = ({ entries, isUpdating, section }) => {
+const EntryList = ({ entries, isUpdating, section, t }) => {
   let keys = entries.keys.filter(
     key => !entries.list[key].hasOwnProperty('replied')
   )
+
   return (
     <Container style={{ maxWidth: '35em' }}>
       {keys.map(key => (
@@ -21,11 +23,11 @@ const EntryList = ({ entries, isUpdating, section }) => {
         {isUpdating ? (
           <Button isLoading isSize="large" isColor="white" />
         ) : !keys.length ? (
-          <Box>Nothing's here!</Box>
+          <Box>{t('entrylist.empty')}</Box>
         ) : null}
       </Container>
     </Container>
   )
 }
 
-export default EntryList
+export default translate()(EntryList)

@@ -1,15 +1,16 @@
 import React from 'react'
-import { Column, Title, Subtitle } from 'bloomer'
+import { Column, Title } from 'bloomer'
+import { translate } from 'react-i18next'
 
-const TitleBlock = ({ config, match }) => (
-  <Column>
-    <Title isSize={1}>
-      {match.params.blk ? config[match.params.blk].title : config.title}
-    </Title>
-    <Subtitle>
-      {match.params.blk ? config[match.params.blk].subtitle : config.subtitle}
-    </Subtitle>
-  </Column>
-)
+const TitleBlock = ({ match, t }) => {
+  let { action, block } = match.params
+  return (
+    <Column>
+      <Title isSize={1}>
+        {t(`header.title.${action}${block ? `.${block}` : ''}`)}
+      </Title>
+    </Column>
+  )
+}
 
-export default TitleBlock
+export default translate()(TitleBlock)

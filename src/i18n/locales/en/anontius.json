@@ -1,0 +1,65 @@
+{
+  "navbar": {
+    "home": "Home",
+    "login": "Login",
+    "logout": "Logout"
+  },
+  "header": {
+    "title": {
+      "view": {
+        "messages": "Received Messages",
+        "replies": "Replied Messages"
+      },
+      "submit": {
+        "message": "Send Message",
+        "reply": "Reply to Message"
+      },
+      "login": "Login"
+    }
+  },
+  "entrylist": {
+    "empty": "Nothing's Here!"
+  },
+  "entry": {
+    "reply": "Reply"
+  },
+  "form": {
+    "login": {
+      "email": "Email",
+      "password": "Password",
+      "button": {
+        "reset": "Clear",
+        "submit": "Login"
+      }
+    },
+    "message": {
+      "button": {
+        "reset": "Clear",
+        "submit": "Send"
+      },
+      "placeholder": "Write your message..."
+    },
+    "reply": {
+      "button": {
+        "reset": "Cancel",
+        "submit": "Reply"
+      },
+      "placeholder": "Reply to message..."
+    }
+  },
+  "notification": {
+    "message": {
+      "empty": "Empty Message!",
+      "error": "Can't Send!",
+      "processing": "Sending...",
+      "reset": "You're no fun, are you?",
+      "success": "Sent!"
+    },
+    "reply": {
+      "empty": "Empty Reply!",
+      "error": "Can't Reply!",
+      "processing": "Replying...",
+      "success": "Replied!"
+    }
+  }
+}

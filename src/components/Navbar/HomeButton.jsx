@@ -1,9 +1,10 @@
 import React from 'react'
 import { Heading, NavbarItem } from 'bloomer'
+import { translate } from 'react-i18next'
 
 import Icon from '../Icon'
 
-const HomeButton = ({ url }) =>
+const HomeButton = ({ t, url }) =>
   url ? (
     <NavbarItem href={url} target="_blank" rel="noopener noreferrer">
       <Heading
@@ -11,10 +12,10 @@ const HomeButton = ({ url }) =>
         isHidden="touch"
         style={{ marginBottom: 0, marginRight: 8 }}
       >
-        Home
+        {t('navbar.home')}
       </Heading>
       <Icon name="home" />
     </NavbarItem>
   ) : null
 
-export default HomeButton
+export default translate()(HomeButton)

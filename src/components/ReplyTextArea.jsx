@@ -1,15 +1,15 @@
 import React from 'react'
 import { Field, Control, Label } from 'bloomer'
-
+import { translate } from 'react-i18next'
 import TextArea from '../components/TextArea'
 
-const ReplyTextArea = ({ config, handleDataChange, isProcessing, data }) => (
+const ReplyTextArea = ({ handleDataChange, isProcessing, data, t }) => (
   <Field>
     <Label>Reply</Label>
     <Control>
       <TextArea
         rows={4}
-        placeholder={config.placeholder}
+        placeholder={t('form.reply.placeholder')}
         value={data}
         handleChange={handleDataChange}
         isProcessing={isProcessing}
@@ -18,4 +18,4 @@ const ReplyTextArea = ({ config, handleDataChange, isProcessing, data }) => (
   </Field>
 )
 
-export default ReplyTextArea
+export default translate()(ReplyTextArea)

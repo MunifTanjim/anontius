@@ -1,8 +1,7 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
-
-import { withRouter, Redirect } from 'react-router-dom'
+import { Link, withRouter, Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
+import { translate } from 'react-i18next'
 
 import { Card, CardFooter, CardFooterItem } from 'bloomer'
 
@@ -13,23 +12,23 @@ const ReplyForm = ({
   messages,
   messageKey,
   data,
-  config,
   handleDataChange,
   handleDataReset,
   handleDataSubmit,
-  isProcessing
+  isProcessing,
+  t
 }) => {
   let message = messages.list[messageKey]
 
   return message.hasOwnProperty('replied') ? (
-    <Redirect to="/show/messages" push />
+    <Redirect to="/view/messages" push />
   ) : (
     <Card tag="form">
       <EntryHeader entry={message} />
 
       <EntryContent
         entry={message}
-        replyFormProps={{ data, handleDataChange, config, isProcessing }}
+        replyFormProps={{ data, handleDataChange, isProcessing }}
       />
 
       <CardFooter>
@@ -38,13 +37,13 @@ const ReplyForm = ({
           hasTextColor="black"
           onClick={e => handleDataSubmit(e, message)}
         >
-          {config.buttonText.submit}
+          {t('form.reply.button.submit')}
         </CardFooterItem>
         <CardFooterItem
           hasTextColor="black"
-          render={props => <Link to="/show/messages" {...props} />}
+          render={props => <Link to="/view/messages" {...props} />}
         >
-          Cancel
+          {t('form.reply.button.reset')}
         </CardFooterItem>
       </CardFooter>
     </Card>
@@ -55,4 +54,4 @@ const mapStatesToProps = ({ entriesBySection }) => ({
   messages: entriesBySection.messages.entries
 })
 
-export default withRouter(connect(mapStatesToProps)(ReplyForm))
+export default withRouter(connect(mapStatesToProps)(translate()(ReplyForm)))

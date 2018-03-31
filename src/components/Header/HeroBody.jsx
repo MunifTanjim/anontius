@@ -6,28 +6,12 @@ import { SimpleRoute } from '../../utils/router'
 
 import TitleBlock from './TitleBlock'
 
-import { headerConfig } from '../../config'
-
 const HeaderHeroBody = () => (
   <HeroBody>
     <Container hasTextAlign="centered">
       <Columns isVCentered>
         <Switch>
-          <SimpleRoute
-            path="/show/:blk"
-            component={TitleBlock}
-            config={headerConfig.show}
-          />
-          <SimpleRoute
-            path="/submit/:blk"
-            component={TitleBlock}
-            config={headerConfig.submit}
-          />
-          <SimpleRoute
-            path="/login"
-            component={TitleBlock}
-            config={headerConfig.login}
-          />
+          <SimpleRoute path="/:action/:block?" component={TitleBlock} />
         </Switch>
       </Columns>
     </Container>

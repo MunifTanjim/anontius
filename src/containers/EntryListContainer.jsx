@@ -8,9 +8,9 @@ import EntryList from '../components/EntryList'
 
 const EntryListContainer = ({ authed, entriesBySection }) => (
   <Switch>
-    <Redirect exact from="/show" to="/show/replies" />
+    <Redirect exact from="/view" to="/view/replies" />
     <SimpleRoute
-      path="/show/replies"
+      path="/view/replies"
       component={EntryList}
       entries={entriesBySection['replies'].entries}
       isUpdating={entriesBySection['replies'].isUpdating}
@@ -18,7 +18,7 @@ const EntryListContainer = ({ authed, entriesBySection }) => (
     />
     <PrivateRoute
       authed={authed}
-      path="/show/messages"
+      path="/view/messages"
       fallbackPath="/login"
       component={EntryList}
       entries={entriesBySection['messages'].entries}
@@ -29,7 +29,7 @@ const EntryListContainer = ({ authed, entriesBySection }) => (
 )
 
 const mapStateToProps = ({ entriesBySection, user }) => ({
-  authed: user.authenticated,
+  authed: user.isAuthenticated,
   entriesBySection
 })
 

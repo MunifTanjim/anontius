@@ -1,12 +1,12 @@
 import React from 'react'
 import { Container, Field, Label, Control, Input, Button } from 'bloomer'
-
+import { translate } from 'react-i18next'
 import { accentColor } from '../../config'
 
-const LoginForm = ({ handleChange, handleLogin, valid }) => (
+const LoginForm = ({ handleChange, handleLogin, valid, t }) => (
   <Container tag="form" style={{ maxWidth: '35em' }}>
     <Field>
-      <Label>Email</Label>
+      <Label>{t('form.login.email')}</Label>
       <Control>
         <Input
           type="email"
@@ -19,7 +19,7 @@ const LoginForm = ({ handleChange, handleLogin, valid }) => (
       </Control>
     </Field>
     <Field>
-      <Label>Password</Label>
+      <Label>{t('form.login.password')}</Label>
       <Control>
         <Input
           type="password"
@@ -39,16 +39,16 @@ const LoginForm = ({ handleChange, handleLogin, valid }) => (
           isSize="large"
           onClick={handleLogin}
         >
-          Login
+          {t('form.login.button.submit')}
         </Button>
       </Control>
       <Control>
         <Button type="reset" isColor={accentColor} isSize="large">
-          Clear
+          {t('form.login.button.reset')}
         </Button>
       </Control>
     </Field>
   </Container>
 )
 
-export default LoginForm
+export default translate()(LoginForm)

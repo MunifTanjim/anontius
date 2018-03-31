@@ -1,24 +1,24 @@
 import React from 'react'
 import { Button } from 'bloomer'
+import { translate } from 'react-i18next'
+import { Container } from 'bloomer'
 
 import TextArea from '../../components/TextArea'
-
-import { Container } from 'bloomer'
 
 import { accentColor } from '../../config'
 
 const Form = ({
   data,
-  config,
   handleDataChange,
   handleDataReset,
   handleDataSubmit,
-  isProcessing
+  isProcessing,
+  t
 }) => (
   <Container tag="form" style={{ maxWidth: '35em' }}>
     <TextArea
       rows={6}
-      placeholder={config.placeholder}
+      placeholder={t('form.message.placeholder')}
       value={data}
       handleChange={handleDataChange}
       isProcessing={isProcessing}
@@ -32,7 +32,7 @@ const Form = ({
         onClick={handleDataSubmit}
         style={{ margin: '0.5em' }}
       >
-        {config.buttonText.submit}
+        {t('form.message.button.submit')}
       </Button>
       <Button
         isSize="large"
@@ -42,10 +42,10 @@ const Form = ({
         onClick={handleDataReset}
         style={{ margin: '0.5em' }}
       >
-        {config.buttonText.reset}
+        {t('form.message.button.reset')}
       </Button>
     </Container>
   </Container>
 )
 
-export default Form
+export default translate()(Form)

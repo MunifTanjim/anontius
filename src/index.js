@@ -1,13 +1,13 @@
-import 'bulma/css/bulma.css'
-
 import React from 'react'
 import ReactDOM from 'react-dom'
 import registerServiceWorker from './registerServiceWorker'
 
-import Root from './containers/Root'
-import { store } from './store'
+import Root from './Root'
 
-import './utils/firebaseAPI'
+import { store } from './store'
+import './i18n'
+
+import 'bulma/css/bulma.css'
 
 ReactDOM.render(<Root store={store} />, document.getElementById('root'))
 

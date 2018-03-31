@@ -1,6 +1,7 @@
 import React from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
+import { translate } from 'react-i18next'
 import {
   Modal,
   ModalBackground,
@@ -9,15 +10,15 @@ import {
   Notification
 } from 'bloomer'
 
-import { notify } from '../actions/notificationActions'
+import { notify } from '../store/actions/notificationActions'
 
 import { accentColor } from '../config'
 
-const NotificationHolder = ({ notification, notify }) => (
+const NotificationHolder = ({ notification, notify, t }) => (
   <Modal isActive={notification.show}>
     <ModalBackground onClick={() => notify(false)} />
     <ModalContent>
-      <Notification isColor={accentColor}>{notification.info}</Notification>
+      <Notification isColor={accentColor}>{t(notification.info)}</Notification>
     </ModalContent>
     <ModalClose onClick={() => notify(false)} />
   </Modal>
@@ -29,4 +30,6 @@ const mapStateToProps = ({ notification }) => ({
 
 const mapDispatchToProps = dispatch => bindActionCreators({ notify }, dispatch)
 
-export default connect(mapStateToProps, mapDispatchToProps)(NotificationHolder)
+export default connect(mapStateToProps, mapDispatchToProps)(
+  translate()(NotificationHolder)
+)

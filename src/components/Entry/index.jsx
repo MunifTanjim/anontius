@@ -1,9 +1,9 @@
 import React from 'react'
 import { Card } from 'bloomer'
 
-import EntryHeader from './Entry/Header'
-import EntryContent from './Entry/Content'
-import EntryFooter from './Entry/Footer'
+import EntryHeader from './Header'
+import EntryContent from './Content'
+import EntryFooter from './Footer'
 
 const Entry = ({ entryKey, entry, section }) => (
   <Card style={{ marginBottom: '2em' }}>

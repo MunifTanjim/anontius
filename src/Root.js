@@ -2,7 +2,7 @@ import React from 'react'
 import { Provider } from 'react-redux'
 import { BrowserRouter } from 'react-router-dom'
 
-import App from '../containers/App'
+import App from './containers/App'
 
 const Root = ({ store }) => (
   <Provider store={store}>

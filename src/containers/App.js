@@ -4,8 +4,8 @@ import { Section, Container } from 'bloomer'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
-import { syncSnapshot } from '../actions/entriesBySectionActions'
-import { userAuthUpdate } from '../actions/userActions'
+import { syncSnapshot } from '../store/actions/entriesBySectionActions'
+import { userAuthUpdate } from '../store/actions/userActions'
 
 import { PrivateRoute, PublicRoute, SimpleRoute } from '../utils/router'
 
@@ -22,12 +22,14 @@ import { authSubscribe } from '../utils/firebaseAPI'
 
 class App extends Component {
   componentDidMount() {
+    let { userAuthUpdate, syncSnapshot } = this.props
+
     this.authUnsubscribe = authSubscribe(user => {
-      this.props.userAuthUpdate(user)
-      if (user) this.props.syncSnapshot('messages')
+      userAuthUpdate(user)
+      if (user) syncSnapshot('messages')
     })
 
-    this.props.syncSnapshot('replies')
+    syncSnapshot('replies')
   }
 
   componentWillUnmount() {
@@ -35,7 +37,7 @@ class App extends Component {
   }
 
   render() {
-    let authed = this.props.user.authenticated
+    let { isAuthenticated: authed } = this.props.user
 
     return (
       <Container style={{ width: '100%', maxWidth: '100%' }}>
@@ -45,11 +47,11 @@ class App extends Component {
           <Container>
             <Switch>
               <Redirect exact from="/" to="/submit/message" />
-              <SimpleRoute path="/show" component={EntryListContainer} />
+              <SimpleRoute path="/view" component={EntryListContainer} />
               <PublicRoute
                 authed={authed}
                 path="/submit/message"
-                fallbackPath="/show/messages"
+                fallbackPath="/view/messages"
                 component={SubmissionContainer}
                 type="message"
               />
@@ -63,7 +65,7 @@ class App extends Component {
               <PublicRoute
                 authed={authed}
                 path="/login"
-                fallbackPath="/show/messages"
+                fallbackPath="/view/messages"
                 component={LoginContainer}
               />
             </Switch>

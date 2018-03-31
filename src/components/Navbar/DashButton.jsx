@@ -3,8 +3,9 @@ import { Link } from 'react-router-dom'
 import { Heading, NavbarItem } from 'bloomer'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
+import { translate } from 'react-i18next'
 
-import { logout } from '../../actions/userActions'
+import { logout } from '../../store/actions/userActions'
 
 import Icon from '../Icon'
 
@@ -13,7 +14,7 @@ const handleLogout = (e, logout) => {
   logout()
 }
 
-const DashButton = ({ authed, logout }) =>
+const DashButton = ({ authed, logout, t }) =>
   authed ? (
     <NavbarItem
       tag="a"
@@ -25,7 +26,7 @@ const DashButton = ({ authed, logout }) =>
         isHidden="touch"
         style={{ marginBottom: 0, marginRight: 8 }}
       >
-        Logout
+        {t('navbar.logout')}
       </Heading>
       <Icon name="log-out" />
     </NavbarItem>
@@ -39,7 +40,7 @@ const DashButton = ({ authed, logout }) =>
         isHidden="touch"
         style={{ marginBottom: 0, marginRight: 8 }}
       >
-        Login
+        {t('navbar.login')}
       </Heading>
       <Icon name="log-in" />
     </NavbarItem>
@@ -47,4 +48,4 @@ const DashButton = ({ authed, logout }) =>
 
 const mapDispatchToProps = dispatch => bindActionCreators({ logout }, dispatch)
 
-export default connect(null, mapDispatchToProps)(DashButton)
+export default connect(null, mapDispatchToProps)(translate()(DashButton))

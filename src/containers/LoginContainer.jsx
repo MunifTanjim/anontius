@@ -5,8 +5,8 @@ import { Container, Button } from 'bloomer'
 
 import LoginForm from '../components/Forms/Login'
 
-import { notify } from '../actions/notificationActions'
-import { login } from '../actions/userActions'
+import { notify } from '../store/actions/notificationActions'
+import { login } from '../store/actions/userActions'
 
 class Login extends Component {
   constructor(props) {

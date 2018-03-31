@@ -1,10 +1,10 @@
 import React from 'react'
 import { Hero } from 'bloomer'
 
-import HeaderHeroBody from './Header/HeroBody'
-import HeaderHeroFooter from './Header/HeroFooter'
+import HeaderHeroBody from './HeroBody'
+import HeaderHeroFooter from './HeroFooter'
 
-import { accentColor } from '../config'
+import { accentColor } from '../../config'
 
 const Header = ({ authed }) => (
   <Hero isColor={accentColor} tag="header">

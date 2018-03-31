@@ -2,23 +2,21 @@ import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
-import { notify } from '../actions/notificationActions'
+import { notify } from '../store/actions/notificationActions'
 
 import { postMessage, postReply } from '../utils/firebaseAPI'
 
 import Form from '../components/Form'
 
-import { notificationConfig } from '../config'
-
-function handlePostError(err, notification) {
+function handlePostError(err) {
   this.setProcessing(false)
-  this.notify(true, `${notification.error} [${err.code}]`)
+  this.notify(true, `${this.notification('error')} [${err.code}]`)
 }
 
-function handlePostSuccess(notification) {
+function handlePostSuccess() {
   this.setProcessing(false)
   this.clearData()
-  this.notify(true, notification.success)
+  this.notify(true, this.notification('success'))
 }
 
 class SubmissionContainer extends Component {
@@ -40,6 +38,12 @@ class SubmissionContainer extends Component {
     this.handleDataChange = this.handleDataChange.bind(this)
     this.handleDataReset = this.handleDataReset.bind(this)
     this.handleDataSubmit = this.handleDataSubmit.bind(this)
+
+    this.notification = this.notification.bind(this)
+  }
+
+  notification(key) {
+    return `notification.${this.props.type}.${key}`
   }
 
   clearData() {
@@ -63,38 +67,35 @@ class SubmissionContainer extends Component {
   handleDataSubmit(e, message = null) {
     e.preventDefault()
 
-    let notification = notificationConfig[this.props.type]
-
     let { data } = this.state
 
     if (data) {
       this.setProcessing(true)
-      this.notify(true, notification.processing)
+      this.notify(true, this.notification('processing'))
 
       if (this.props.type === 'reply') {
         postReply(data, message, this.props.match.params.key)
-          .then(data => this.handlePostSuccess(notification))
-          .catch(err => this.handlePostError(err, notification))
+          .then(data => this.handlePostSuccess())
+          .catch(err => this.handlePostError(err))
       } else {
         postMessage(data)
-          .then(data => this.handlePostSuccess(notification))
-          .catch(err => this.handlePostError(err, notification))
+          .then(data => this.handlePostSuccess())
+          .catch(err => this.handlePostError(err))
       }
     } else {
-      this.notify(true, notification.empty)
+      this.notify(true, this.notification('empty'))
     }
   }
 
   handleDataReset(e) {
     e.preventDefault()
 
-    let notification = notificationConfig[this.props.type]
-
     this.clearData()
-    this.notify(true, notification.reset)
+    this.notify(true, this.notification('reset'))
   }
 
   render() {
+    console.log(this.notification('reset'))
     return (
       <Form
         type={this.props.type}

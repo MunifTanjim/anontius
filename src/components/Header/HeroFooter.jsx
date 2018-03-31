@@ -9,17 +9,17 @@ const HeaderHeroFooter = ({ authed }) => (
       <Tabs isBoxed isFullWidth>
         {authed ? (
           <TabList>
-            <TabLink exact to="/show/messages">
+            <TabLink exact to="/view/messages">
               Messages
             </TabLink>
-            <TabLink exact to="/show/replies">
+            <TabLink exact to="/view/replies">
               Replies
             </TabLink>
           </TabList>
         ) : (
           <TabList>
             <TabLink to="/submit/message">Send</TabLink>
-            <TabLink to="/show/replies">Replies</TabLink>
+            <TabLink to="/view/replies">Replies</TabLink>
           </TabList>
         )}
       </Tabs>
