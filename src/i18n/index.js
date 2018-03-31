@@ -16,13 +16,12 @@ const loadLocales = (url, options, callback, data) => {
     callback(null, { status: '404' })
   }
 }
-
 i18n
   .use(XHRBackend)
   .use(LanguageDetector)
   .use(reactI18nextModule)
   .init({
-    debug: true,
+    debug: 'development' === process.env.NODE_ENV,
 
     fallbackLng: 'en',
     whitelist: false,
