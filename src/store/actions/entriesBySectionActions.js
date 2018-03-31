@@ -1,5 +1,5 @@
-import { store } from '../store'
-import { syncSnapshotSubscribe } from '../utils/firebaseAPI'
+import { store } from '../../store'
+import { syncSnapshotSubscribe } from '../../utils/firebaseAPI'
 
 import {
   SYNC_ENTRIES_REQUEST,

@@ -1,4 +1,4 @@
-import { firebaseLogin, firebaseLogout } from '../utils/firebaseAPI'
+import { firebaseLogin, firebaseLogout } from '../../utils/firebaseAPI'
 
 import {
   USER_AUTH_LOGIN,

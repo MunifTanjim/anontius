@@ -7,7 +7,7 @@ import {
 
 export const userReducer = (
   state = {
-    authenticated: false,
+    isAuthenticated: false,
     isProcessing: false,
     uid: null
   },
@@ -22,7 +22,7 @@ export const userReducer = (
       }
     case USER_AUTH_UPDATE:
       return {
-        authenticated: action.user ? true : false,
+        isAuthenticated: action.user ? true : false,
         isProcessing: false,
         uid: action.user ? action.user.uid : null
       }
