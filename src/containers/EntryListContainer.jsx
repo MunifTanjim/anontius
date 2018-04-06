@@ -1,8 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { Switch, Redirect } from 'react-router-dom'
+import { Switch } from 'react-router-dom'
 
-import { PrivateRoute, SimpleRoute } from '../utils/router'
+import { Redirect, PrivateRoute, SimpleRoute } from '../utils/router'
 
 import EntryList from '../components/EntryList'
 

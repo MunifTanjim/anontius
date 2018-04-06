@@ -1,8 +1,18 @@
 import React from 'react'
-import { Redirect, Route } from 'react-router-dom'
+import { Redirect as ReactRouterRedirect, Route } from 'react-router-dom'
+
+export const Redirect = props =>
+  props.location.search ? (
+    <ReactRouterRedirect
+      {...props}
+      to={{ pathname: props.to, search: props.location.search }}
+    />
+  ) : (
+    <ReactRouterRedirect {...props} />
+  )
 
 export const SimpleRoute = ({ component: Component, ...rest }) => (
-  <Route {...rest} render={props => <Component {...props} {...rest} />} />
+  <Route {...rest} render={props => <Component {...rest} {...props} />} />
 )
 
 export const PrivateRoute = ({
@@ -15,10 +25,11 @@ export const PrivateRoute = ({
     {...rest}
     render={props =>
       authed ? (
-        <Component {...props} {...rest} />
+        <Component {...rest} {...props} />
       ) : (
-        <Redirect to={fallbackPath} />
-      )}
+        <Redirect to={fallbackPath} {...props} />
+      )
+    }
   />
 )
 
@@ -32,9 +43,10 @@ export const PublicRoute = ({
     {...rest}
     render={props =>
       authed ? (
-        <Redirect to={fallbackPath} />
+        <Redirect to={fallbackPath} {...props} />
       ) : (
-        <Component {...props} {...rest} />
-      )}
+        <Component {...rest} {...props} />
+      )
+    }
   />
 )

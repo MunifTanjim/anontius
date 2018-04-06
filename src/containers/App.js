@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Switch, Redirect, withRouter } from 'react-router-dom'
+import { Switch, withRouter } from 'react-router-dom'
 import { Section, Container } from 'bloomer'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
@@ -7,7 +7,12 @@ import { connect } from 'react-redux'
 import { syncSnapshot } from '../store/actions/entriesBySectionActions'
 import { userAuthUpdate } from '../store/actions/userActions'
 
-import { PrivateRoute, PublicRoute, SimpleRoute } from '../utils/router'
+import {
+  Redirect,
+  PrivateRoute,
+  PublicRoute,
+  SimpleRoute
+} from '../utils/router'
 
 import EntryListContainer from '../containers/EntryListContainer'
 import SubmissionContainer from '../containers/SubmissionContainer'

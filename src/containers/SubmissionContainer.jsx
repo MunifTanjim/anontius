@@ -95,7 +95,6 @@ class SubmissionContainer extends Component {
   }
 
   render() {
-    console.log(this.notification('reset'))
     return (
       <Form
         type={this.props.type}

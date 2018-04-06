@@ -1,9 +1,11 @@
 import React from 'react'
-import { Link, withRouter, Redirect } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { translate } from 'react-i18next'
 
 import { Card, CardFooter, CardFooterItem } from 'bloomer'
+
+import { Redirect } from '../../utils/router'
 
 import EntryHeader from '../Entry/Header'
 import EntryContent from '../Entry/Content'
