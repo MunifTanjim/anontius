@@ -28,13 +28,16 @@ export const postMessage = message => {
 export const postReply = (reply, message, key) => {
   let data = {
     ...message,
+    messageKey: key,
     reply: reply,
     repliedAt: firebase.database.ServerValue.TIMESTAMP
   }
 
+  let replyKey = ref.child('replies').push().key
+
   let updates = {
     [`/messages/${key}/replied`]: true,
-    [`/replies/${key}`]: data
+    [`/replies/${replyKey}`]: data
   }
 
   return ref.update(updates)

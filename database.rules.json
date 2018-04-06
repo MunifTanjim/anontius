@@ -11,7 +11,7 @@
       ".write": false,
       "$reply": {
         ".write":
-          "auth != null && !data.exists() && root.child('messages/'+$reply).exists()"
+          "auth != null && !data.exists() && !root.child('messages/'+newData.child('messageKey').val()+'/replied').exists()"
       }
     }
   }
