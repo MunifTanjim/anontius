@@ -2,7 +2,7 @@ import React from 'react'
 import { Redirect as ReactRouterRedirect, Route } from 'react-router-dom'
 
 export const Redirect = props =>
-  props.location.search ? (
+  props.location && props.location.search ? (
     <ReactRouterRedirect
       {...props}
       to={{ pathname: props.to, search: props.location.search }}

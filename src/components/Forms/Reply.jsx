@@ -22,7 +22,7 @@ const ReplyForm = ({
 }) => {
   let message = messages.list[messageKey]
 
-  return message.hasOwnProperty('replied') ? (
+  return !message || message.hasOwnProperty('replied') ? (
     <Redirect to="/view/messages" push />
   ) : (
     <Card tag="form">
