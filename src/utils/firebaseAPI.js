@@ -10,16 +10,16 @@ const auth = firebaseApp.auth()
 const db = firebaseApp.database()
 const ref = db.ref()
 
-export const postMessage = message => {
+export const postMessage = (message) => {
   let data = {
     message,
-    receivedAt: firebase.database.ServerValue.TIMESTAMP
+    receivedAt: firebase.database.ServerValue.TIMESTAMP,
   }
 
   let key = ref.child('messages').push().key
 
   let updates = {
-    [`/messages/${key}`]: data
+    [`/messages/${key}`]: data,
   }
 
   return ref.update(updates)
@@ -30,14 +30,14 @@ export const postReply = (reply, message, key) => {
     ...message,
     messageKey: key,
     reply: reply,
-    repliedAt: firebase.database.ServerValue.TIMESTAMP
+    repliedAt: firebase.database.ServerValue.TIMESTAMP,
   }
 
   let replyKey = ref.child('replies').push().key
 
   let updates = {
     [`/messages/${key}/replied`]: true,
-    [`/replies/${replyKey}`]: data
+    [`/replies/${replyKey}`]: data,
   }
 
   return ref.update(updates)
@@ -48,11 +48,11 @@ export const firebaseLogin = (email, pass) =>
 
 export const firebaseLogout = () => auth.signOut()
 
-export const authSubscribe = callback => auth.onAuthStateChanged(callback)
+export const authSubscribe = (callback) => auth.onAuthStateChanged(callback)
 
 export const syncSnapshotSubscribe = (
   section,
-  startKey = '',
+  startKey,
   requestCallback,
   successCallback,
   failureCallback
@@ -64,7 +64,11 @@ export const syncSnapshotSubscribe = (
     .startAt(startKey)
     .on(
       'value',
-      snapshot => successCallback(section, snapshot),
-      err => failureCallback(section, err)
+      (snapshot) => {
+        successCallback(section, snapshot)
+      },
+      (err) => {
+        failureCallback(section, err)
+      }
     )
 }

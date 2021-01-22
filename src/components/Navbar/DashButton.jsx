@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { Heading, NavbarItem } from 'bloomer'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { translate } from 'react-i18next'
+import { useTranslation } from 'react-i18next'
 
 import { logout } from '../../store/actions/userActions'
 
@@ -14,12 +14,14 @@ const handleLogout = (e, logout) => {
   logout()
 }
 
-const DashButton = ({ authed, logout, t }) =>
-  authed ? (
+const DashButton = ({ authed, logout }) => {
+  const { t } = useTranslation()
+
+  return authed ? (
     <NavbarItem
       tag="a"
       style={{ marginLeft: 'auto' }}
-      onClick={e => handleLogout(e, logout)}
+      onClick={(e) => handleLogout(e, logout)}
     >
       <Heading
         tag="span"
@@ -33,7 +35,7 @@ const DashButton = ({ authed, logout, t }) =>
   ) : (
     <NavbarItem
       style={{ marginLeft: 'auto' }}
-      render={props => <Link to="/login" {...props} />}
+      render={(props) => <Link to="/login" {...props} />}
     >
       <Heading
         tag="span"
@@ -45,7 +47,9 @@ const DashButton = ({ authed, logout, t }) =>
       <Icon name="log-in" />
     </NavbarItem>
   )
+}
 
-const mapDispatchToProps = dispatch => bindActionCreators({ logout }, dispatch)
+const mapDispatchToProps = (dispatch) =>
+  bindActionCreators({ logout }, dispatch)
 
-export default connect(null, mapDispatchToProps)(translate()(DashButton))
+export default connect(null, mapDispatchToProps)(DashButton)

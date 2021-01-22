@@ -1,21 +1,25 @@
 import React from 'react'
 import { Field, Control, Label } from 'bloomer'
-import { translate } from 'react-i18next'
+import { useTranslation } from 'react-i18next'
 import TextArea from '../components/TextArea'
 
-const ReplyTextArea = ({ handleDataChange, isProcessing, data, t }) => (
-  <Field>
-    <Label>Reply</Label>
-    <Control>
-      <TextArea
-        rows={4}
-        placeholder={t('form.reply.placeholder')}
-        value={data}
-        handleChange={handleDataChange}
-        isProcessing={isProcessing}
-      />
-    </Control>
-  </Field>
-)
+const ReplyTextArea = ({ handleDataChange, isProcessing, data }) => {
+  const { t } = useTranslation()
 
-export default translate()(ReplyTextArea)
+  return (
+    <Field>
+      <Label>Reply</Label>
+      <Control>
+        <TextArea
+          rows={4}
+          placeholder={t('form.reply.placeholder')}
+          value={data}
+          handleChange={handleDataChange}
+          isProcessing={isProcessing}
+        />
+      </Control>
+    </Field>
+  )
+}
+
+export default ReplyTextArea

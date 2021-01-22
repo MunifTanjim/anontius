@@ -11,7 +11,7 @@ import {
   Redirect,
   PrivateRoute,
   PublicRoute,
-  SimpleRoute
+  SimpleRoute,
 } from '../utils/router'
 
 import EntryListContainer from '../containers/EntryListContainer'
@@ -29,7 +29,7 @@ class App extends Component {
   componentDidMount() {
     let { userAuthUpdate, syncSnapshot } = this.props
 
-    this.authUnsubscribe = authSubscribe(user => {
+    this.authUnsubscribe = authSubscribe((user) => {
       userAuthUpdate(user)
       if (user) syncSnapshot('messages')
     })
@@ -85,7 +85,7 @@ class App extends Component {
 
 const mapStateToProps = ({ user }) => ({ user })
 
-const mapDispatchToProps = dispatch =>
+const mapDispatchToProps = (dispatch) =>
   bindActionCreators({ userAuthUpdate, syncSnapshot }, dispatch)
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App))

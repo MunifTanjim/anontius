@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { translate } from 'react-i18next'
+import { useTranslation } from 'react-i18next'
 
 import { Card, CardFooter, CardFooterItem } from 'bloomer'
 
@@ -18,8 +18,9 @@ const ReplyForm = ({
   handleDataReset,
   handleDataSubmit,
   isProcessing,
-  t
 }) => {
+  const { t } = useTranslation()
+
   let message = messages.list[messageKey]
 
   return !message || message.hasOwnProperty('replied') ? (
@@ -37,13 +38,13 @@ const ReplyForm = ({
         <CardFooterItem
           tag="a"
           hasTextColor="black"
-          onClick={e => handleDataSubmit(e, message)}
+          onClick={(e) => handleDataSubmit(e, message)}
         >
           {t('form.reply.button.submit')}
         </CardFooterItem>
         <CardFooterItem
           hasTextColor="black"
-          render={props => <Link to="/view/messages" {...props} />}
+          render={(props) => <Link to="/view/messages" {...props} />}
         >
           {t('form.reply.button.reset')}
         </CardFooterItem>
@@ -53,7 +54,7 @@ const ReplyForm = ({
 }
 
 const mapStatesToProps = ({ entriesBySection }) => ({
-  messages: entriesBySection.messages.entries
+  messages: entriesBySection.messages.entries,
 })
 
-export default withRouter(connect(mapStatesToProps)(translate()(ReplyForm)))
+export default withRouter(connect(mapStatesToProps)(ReplyForm))

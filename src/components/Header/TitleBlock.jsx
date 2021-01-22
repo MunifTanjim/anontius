@@ -1,9 +1,11 @@
 import React from 'react'
 import { Column, Title } from 'bloomer'
-import { translate } from 'react-i18next'
+import { useTranslation } from 'react-i18next'
 
-const TitleBlock = ({ match, t }) => {
+const TitleBlock = ({ match }) => {
+  const { t } = useTranslation()
   let { action, block } = match.params
+
   return (
     <Column>
       <Title isSize={1}>
@@ -13,4 +15,4 @@ const TitleBlock = ({ match, t }) => {
   )
 }
 
-export default translate()(TitleBlock)
+export default TitleBlock

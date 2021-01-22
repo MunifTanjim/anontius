@@ -1,11 +1,13 @@
 import React from 'react'
 import { Heading, NavbarItem } from 'bloomer'
-import { translate } from 'react-i18next'
+import { useTranslation } from 'react-i18next'
 
 import Icon from '../Icon'
 
-const HomeButton = ({ t, url }) =>
-  url ? (
+const HomeButton = ({ url }) => {
+  const { t } = useTranslation()
+
+  return url ? (
     <NavbarItem href={url} target="_blank" rel="noopener noreferrer">
       <Heading
         tag="span"
@@ -17,5 +19,6 @@ const HomeButton = ({ t, url }) =>
       <Icon name="home" />
     </NavbarItem>
   ) : null
+}
 
-export default translate()(HomeButton)
+export default HomeButton
