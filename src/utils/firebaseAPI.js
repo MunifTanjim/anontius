@@ -58,17 +58,17 @@ export const syncSnapshotSubscribe = (
   failureCallback
 ) => {
   requestCallback(section)
-  return ref
-    .child(section)
-    .orderByKey()
-    .startAt(startKey)
-    .on(
-      'value',
-      (snapshot) => {
-        successCallback(section, snapshot)
-      },
-      (err) => {
-        failureCallback(section, err)
-      }
-    )
+  let syncRef = ref.child(section).orderByKey()
+  if (startKey) {
+    syncRef = ref.startAt(startKey)
+  }
+  syncRef.on(
+    'value',
+    (snapshot) => {
+      successCallback(section, snapshot)
+    },
+    (err) => {
+      failureCallback(section, err)
+    }
+  )
 }
